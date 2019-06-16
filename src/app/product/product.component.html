@@ -2,7 +2,7 @@
   Product Name: {{productName}}
 </h1>
 
-<div [hidden]="isHidden" [innerText]="productName">
+<div *ngIf="isHidden" [innerText]="productName">
 
 </div>
 {{isHidden}}
@@ -16,3 +16,6 @@
 {{product.mfd}}
 
 {{product.margin}}
+
+
+<app-product-list></app-product-list>

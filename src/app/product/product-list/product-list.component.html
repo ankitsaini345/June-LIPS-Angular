@@ -1,0 +1,23 @@
+<h1>
+  Product List
+</h1>
+
+{{productList | json}}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Margin</th>
+      <th>Price</th>
+      <th>Mfd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <td>{{product.name}}</td>
+      <td>{{product.margin}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.mfd}}</td>
+    </tr>
+  </tbody>
+</table>

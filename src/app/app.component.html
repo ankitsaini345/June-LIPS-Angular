@@ -4,4 +4,15 @@
     Welcome to {{ title }}!
   </h1>
 </div>
-<app-product></app-product>
+
+<div [ngSwitch]="role">
+  <div *ngSwitchCase="'Admin'">
+    <app-product></app-product>
+  </div>
+  <div *ngSwitchCase="'User'">
+    This is user view.
+  </div>
+  <div *ngSwitchDefault>
+    This is default view.
+  </div>
+</div>
