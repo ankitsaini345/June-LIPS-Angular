@@ -1,0 +1,9 @@
+.isEven {
+  background-color: green;
+  color: white;
+}
+
+.isOdd {
+  background-color: steelblue;
+  color: white;
+}

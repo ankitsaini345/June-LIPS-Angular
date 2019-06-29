@@ -1,0 +1,32 @@
+<h1>
+  Employee List
+</h1>
+
+<table class="table">
+  <thead>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>DOB</th>
+    <th>Salary</th>
+    <th>
+      Action
+    </th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let emp of employeeList; trackBy: trackByFn">
+      <td>{{emp.id}}</td>
+      <td>{{emp.name}}</td>
+      <td>{{emp.email}}</td>
+      <td>{{emp.address}}</td>
+      <td>{{emp.dob}}</td>
+      <td>{{emp.salary}}</td>
+      <td>
+       <button class="btn btn-success" (click)="edit(emp)">
+          Edit
+       </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

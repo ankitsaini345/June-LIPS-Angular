@@ -1,0 +1,5 @@
+{{selectedEmployee | json}}
+
+<app-employee-list
+[employeeList]="empList"
+(selectedEmployee)="receiveEmployee($event)"></app-employee-list>

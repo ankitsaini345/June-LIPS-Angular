@@ -6,6 +6,9 @@
 <table class="table">
   <thead>
     <tr>
+      <th>Index</th>
+      <th>IsEven</th>
+      <th>IsOdd</th>
       <th>Name</th>
       <th>Margin</th>
       <th>Price</th>
@@ -13,7 +16,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of productList">
+    <tr [ngClass]="isEven? 'isEven': 'isOdd'" *ngFor="let product of productList;
+    let i=index; let isEven=even; let isOdd= odd;
+    trackBy: trackByFn">
+      <td>{{i}}</td>
+      <td>{{isEven}}</td>
+      <td>{{isOdd}}</td>
       <td>{{product.name}}</td>
       <td>{{product.margin}}</td>
       <td>{{product.price}}</td>

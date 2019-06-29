@@ -33,4 +33,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit() {
   }
 
+  trackByFn(index, data) {
+    return index;
+  }
 }
