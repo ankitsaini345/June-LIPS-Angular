@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { IProduct } from './iproduct';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-product',
@@ -7,6 +8,9 @@ import { IProduct } from './iproduct';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
+
+  @ViewChild(HeaderComponent, { static: true }) headerComponent: HeaderComponent;
+  @ViewChild('title', { static: true }) div: ElementRef;
 
   productName: string = 'Lenovo G40-45';
   isHidden = false;
@@ -19,9 +23,11 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.headerComponent.title = ` Product Name: ${this.productName}`;
   }
 
   toggle() {
+    this.div.nativeElement.innerText = 'New Product';
     this.isHidden = !this.isHidden;
   }
 

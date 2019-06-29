@@ -8,6 +8,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
     ProductComponent,
     ProductListComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

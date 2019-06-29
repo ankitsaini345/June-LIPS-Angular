@@ -1,8 +1,11 @@
-<h1>
-  Product Name: {{productName}}
-</h1>
+<app-header>
 
-<div *ngIf="isHidden" [innerText]="productName">
+</app-header>
+<!-- <h1>
+  Product Name: {{productName}}
+</h1> -->
+
+<div #title [innerText]="productName">
 
 </div>
 {{isHidden}}
