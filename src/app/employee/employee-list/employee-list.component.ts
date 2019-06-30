@@ -3,7 +3,9 @@ import {
   Input,
   ChangeDetectionStrategy,
   Output,
-  EventEmitter
+  EventEmitter,
+  OnChanges,
+  SimpleChanges
 } from '@angular/core';
 import { IEmployee } from '../iemployee';
 
@@ -13,11 +15,16 @@ import { IEmployee } from '../iemployee';
   styleUrls: ['./employee-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EmployeeListComponent implements OnInit {
+export class EmployeeListComponent implements OnInit, OnChanges {
   @Input() employeeList: Array<IEmployee>;
-
+  @Input() title: string;
   @Output() selectedEmployee = new EventEmitter<IEmployee>();
+
   constructor() { }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+  }
 
   ngOnInit() {
   }
