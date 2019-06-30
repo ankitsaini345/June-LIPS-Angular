@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +6,11 @@ import { Component } from '@angular/core';
   // template: '<h1>This is</h1>'
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements DoCheck {
   title = 'ecommerceapp';
   role = 'Users';
+
+  ngDoCheck(): void {
+   console.log('check event is called');
+  }
 }
