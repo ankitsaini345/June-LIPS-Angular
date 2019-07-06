@@ -1,6 +1,7 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { EmployeeService } from './employee/service/employee.service';
 import { IEmployee } from './employee/iemployee';
+import { ProductService } from './product/service/product.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,21 @@ import { IEmployee } from './employee/iemployee';
   // template: '<h1>This is</h1>'
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements DoCheck {
+export class AppComponent implements OnInit, DoCheck {
   title = 'ecommerceapp';
   role = 'Users';
-
+  productCount = 0;
   empList: IEmployee[] = [];
-  constructor(private empService: EmployeeService) { }
+  constructor(private empService: EmployeeService,
+    private productService: ProductService) { }
 
+
+  ngOnInit() {
+    this.productService.getProduct().
+      subscribe(
+        (data) => this.productCount = data.length
+      );
+  }
 
   ngDoCheck(): void {
     console.log('check event is called');

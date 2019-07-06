@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { IProduct } from './iproduct';
 import { HeaderComponent } from '../header/header.component';
+import { ProductService } from './service/product.service';
 
 @Component({
   selector: 'app-product',
@@ -29,7 +30,7 @@ export class ProductComponent implements OnInit, AfterViewInit {
     price: 65000,
     mfd: new Date('13-Feb-2018')
   };
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
     // this.headerComponent.title = ` Product Name: ${this.productName}`;
@@ -52,6 +53,10 @@ export class ProductComponent implements OnInit, AfterViewInit {
   toggle() {
     this.div.nativeElement.innerText = 'New Product';
     this.isHidden = !this.isHidden;
+  }
+
+  addProduct() {
+    this.productService.addProduct();
   }
 
 }

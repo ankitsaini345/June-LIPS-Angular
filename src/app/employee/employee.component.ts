@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, OnInit,
+  Self, ViewChild, ElementRef
+} from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { IEmployee } from './iemployee';
 import { EmployeeService } from './service/employee.service';
 
@@ -10,15 +14,22 @@ import { EmployeeService } from './service/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
+  // @ViewChild('search', { static: true }) searchBox: ElementRef;
   empList: Array<IEmployee>;
 
   selectedEmployee: IEmployee;
 
   // empService = new EmployeeService();
 
-  constructor(private empService: EmployeeService) { }
+  constructor(@Self() private empService: EmployeeService) { }
 
   ngOnInit() {
+    // if(this.empService) {
+    //   this.empList = this.empService.getEmployeeList();
+
+    // }
+    console.log(this.searchBox);
+    // this.searchBox.nativeElement.onchange((data) => console.log(data));
     this.empList = this.empService.getEmployeeList();
   }
 
