@@ -12,6 +12,9 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import { HeaderComponent } from './header/header.component';
 import { ContainerComponent } from './container/container.component';
 import { PostsModule } from './posts/posts.module';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,14 +24,21 @@ import { PostsModule } from './posts/posts.module';
     EmployeeComponent,
     EmployeeListComponent,
     HeaderComponent,
-    ContainerComponent
+    ContainerComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    PostsModule
+    PostsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
