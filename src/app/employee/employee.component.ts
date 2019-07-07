@@ -2,7 +2,6 @@ import {
   Component, OnInit,
   Self, ViewChild, ElementRef
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { IEmployee } from './iemployee';
 import { EmployeeService } from './service/employee.service';
 
@@ -28,7 +27,7 @@ export class EmployeeComponent implements OnInit {
     //   this.empList = this.empService.getEmployeeList();
 
     // }
-    console.log(this.searchBox);
+    // console.log(this.searchBox);
     // this.searchBox.nativeElement.onchange((data) => console.log(data));
     this.empList = this.empService.getEmployeeList();
   }
