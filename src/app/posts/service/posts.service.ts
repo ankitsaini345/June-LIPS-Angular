@@ -12,7 +12,13 @@ export class PostsService {
 
   getPosts() {
     return this.http.get<IPosts[]>
-    ('https://jsonplaceholder.typicode.com/posts');
+      ('https://jsonplaceholder.typicode.com/posts');
+  }
+
+  addPost(post: IPosts) {
+    return this.http.post<IPosts>
+      ('https://jsonplaceholder.typicode.com/posts',
+        post);
   }
 
 }

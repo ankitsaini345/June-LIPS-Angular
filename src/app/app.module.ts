@@ -15,6 +15,7 @@ import { PostsModule } from './posts/posts.module';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { ProductAddComponent } from './product/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     EmployeeListComponent,
     HeaderComponent,
     ContainerComponent,
-    MainNavComponent
+    MainNavComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
