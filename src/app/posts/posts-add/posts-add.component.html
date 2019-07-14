@@ -18,16 +18,32 @@ Errors: {{postForm.errors | json}}
 
 <form #postForm="ngForm" (submit)="addpost(postForm);">
   <div class="form-group">
-    <input min=1 max=5 class="form-control" type="number" name="userid"
-    [(ngModel)]="posts.userId" placeholder="User Id">
+    <input min=1 max=5 class="form-control" type="number" name="userid" [(ngModel)]="posts.userId"
+      placeholder="User Id">
   </div>
   <div class="form-group">
-    <input required class="form-control" type="text" name="body"
-    [(ngModel)]="posts.body" placeholder="Body">
+    <input #body="ngModel" required class="form-control" type="text" name="body" [(ngModel)]="posts.body"
+      placeholder="Body">
+
+    <div class="alert alert-danger"
+    *ngIf="body.dirty && body?.errors?.required">
+      Please provide body data!
+    </div>
+    <br>
+    invalid: {{body.invalid | json}}
+    <br>
+    valid: {{body.valid | json}}
+    <br>
+    Pristine: {{body.pristine | json}}
+    <br>
+    Dirty: {{body.dirty | json}}
+    <br>
+    Value: {{body.value | json}}
+    <br>
+    Errors: {{body.errors | json}}
   </div>
   <div class="form-group">
-    <input required class="form-control" type="text" name="title"
-    [(ngModel)]="posts.title" placeholder="Title">
+    <input required class="form-control" type="text" name="title" [(ngModel)]="posts.title" placeholder="Title">
   </div>
   <div class="form-group">
     <button [disabled]="postForm.invalid" type="submit" class="btn btn-primary">

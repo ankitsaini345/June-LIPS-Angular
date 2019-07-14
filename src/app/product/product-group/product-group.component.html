@@ -1,0 +1,18 @@
+{{productForm.invalid | json }}
+{{productForm.value | json }}
+
+<form [formGroup]="productForm">
+  <div class="form-group">
+    <input class="form-control" formControlName="name"
+    placeholder="Product Name">
+  </div>
+  <div class="form-group">
+    <input class="form-control" typ="number"  formControlName="price"
+     placeholder="Product Price">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="date" formControlName="mfd"
+     placeholder="Product Manufacturing Date">
+  </div>
+
+</form>

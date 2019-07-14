@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { ProductAddComponent } from './product/product-add/product-add.component';
+import { ProductFormComponent } from './product/product-form/product-form.component';
+import { ProductGroupComponent } from './product/product-group/product-group.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +30,15 @@ import { ProductAddComponent } from './product/product-add/product-add.component
     HeaderComponent,
     ContainerComponent,
     MainNavComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    ProductFormComponent,
+    ProductGroupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     PostsModule,
     LayoutModule,

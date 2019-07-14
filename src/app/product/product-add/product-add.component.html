@@ -1,3 +1,11 @@
-<p>
-  product-add works!
-</p>
+{{searchBox.invalid | json}}
+{{searchBox.valid | json}}
+{{searchBox.value | json}}
+
+<input class="form-control" type="text" [formControl]="searchBox"
+placeholder="Enter Search Text">
+
+
+<button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+<button type="button" class="btn btn-success" (click)="enable()">Enable</button>
+<button type="button" class="btn btn-danger" (click)="disable()">Disable</button>
