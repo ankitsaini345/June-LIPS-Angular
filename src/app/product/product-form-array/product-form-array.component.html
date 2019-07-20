@@ -1,0 +1,53 @@
+<h1>
+  Form Array/ Form Nesting
+</h1>
+
+{{productArrayForm.value  | json}}
+<form [formGroup]="productArrayForm">
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="name" placeholder="Product Name">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="number" formControlName="price" placeholder="Product Price">
+  </div>
+  <div formGroupName="address">
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="addressLine1" placeholder="Address Line1">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="addressLine2" placeholder="Address Line2">
+    </div>
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="city" placeholder="City">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary" (click)="addSeller()">
+      Add Seller</button>
+  </div>
+
+  <div formArrayName="sellers">
+    <div *ngFor="let seller of
+    productArrayForm['controls'].sellers['controls'];
+    let i=index">
+      <div [formGroupName]="i">
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="sellerName" placeholder="Seller Name">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="number" formControlName="discount" placeholder="Discount">
+        </div>
+        <div class="form-group">
+          <input class="form-control" type="number" formControlName="estDeliveryTime"
+            placeholder="Estimated Delivery Time">
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-danger" (click)="removeSeller(i)">
+          Remove Seller
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

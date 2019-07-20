@@ -19,6 +19,7 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
 import { ProductAddComponent } from './product/product-add/product-add.component';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ProductGroupComponent } from './product/product-group/product-group.component';
+import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductGroupComponent } from './product/product-group/product-group.com
     MainNavComponent,
     ProductAddComponent,
     ProductFormComponent,
-    ProductGroupComponent
+    ProductGroupComponent,
+    ProductFormArrayComponent
   ],
   imports: [
     BrowserModule,
