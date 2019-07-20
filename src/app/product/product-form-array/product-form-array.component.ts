@@ -17,7 +17,7 @@ export class ProductFormArrayComponent implements OnInit {
   ngOnInit() {
     this.productArrayForm = this.fb.group({
       name: [''],
-      price: [''],
+      price: [{ value: '100', disabled: true }],
       address: this.fb.group({
         addressLine1: [''],
         addressLine2: [''],
@@ -26,7 +26,9 @@ export class ProductFormArrayComponent implements OnInit {
       sellers: this.fb.array([
         this.buildForm()
       ])
-    })
+    });
+
+    // this.productArrayForm.disable();
   }
 
   buildForm() {
@@ -47,5 +49,12 @@ export class ProductFormArrayComponent implements OnInit {
     let sellerControl =
       this.productArrayForm.get('sellers') as FormArray;
     sellerControl.removeAt(i);
+  }
+
+
+  saveProduct() {
+    console.log(this.productArrayForm.value);
+    console.log(this.productArrayForm.getRawValue());
+
   }
 }
