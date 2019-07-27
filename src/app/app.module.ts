@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { HeaderComponent } from './header/header.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HeaderComponent } from './header/header.component';
     ProductListComponent,
     EmployeeComponent,
     EmployeeListComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
