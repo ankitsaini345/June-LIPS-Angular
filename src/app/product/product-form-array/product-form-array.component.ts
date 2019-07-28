@@ -4,6 +4,7 @@ import {
   FormControl, FormArray,
   Validators
 } from '@angular/forms';
+import { ProductService } from '../service/product.service';
 @Component({
   selector: 'app-product-form-array',
   templateUrl: './product-form-array.component.html',
@@ -13,7 +14,8 @@ export class ProductFormArrayComponent implements OnInit {
 
   productArrayForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+      private productService: ProductService) { }
 
   ngOnInit() {
     this.productArrayForm = this.fb.group({
@@ -37,24 +39,29 @@ export class ProductFormArrayComponent implements OnInit {
   }
 
   bindData() {
-    this.productArrayForm.setValue({
-      name: 'One Plus 6T',
-      tnc : true,
-      price: 50000,
-      address: {
-        addressLine1: 'Pune',
-        addressLine2: 'Pune',
-        city: 'Pune'
-      },
-      sellers: [
-        {
-          sellerName: 'Amazon',
-          email: 'amazon@test.com',
-          discount: .2,
-          estDeliveryTime: '3 days'
-        }
-      ]
-    });
+
+    this.productService.getProductInfo().subscribe(
+      (data) => this.productArrayForm.setValue(data)
+    );
+    // this.productArrayForm.setValue({
+    //   name: 'One Plus 6T',
+    //   tnc : true,
+    //   price: 50000,
+    //   address: {
+    //     addressLine1: 'Pune',
+    //     addressLine2: 'Pune',
+    //     city: 'Pune'
+    //   },
+    //   sellers: [
+    //     {
+    //       sellerName: 'Amazon',
+    //       email: 'amazon@test.com',
+    //       discount: .2,
+    //       estDeliveryTime: '3 days'
+    //     }
+    //   ]
+    // });
+
   }
 
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { IProduct } from '../iproduct';
 
 @Injectable({
@@ -27,5 +27,29 @@ export class ProductService {
 
   getProduct() {
     return this.subject.asObservable();
+  }
+
+
+  getProductInfo() {
+    const productInfo = {
+      name: 'One Plus 6T',
+      tnc : true,
+      price: 50000,
+      address: {
+        addressLine1: 'Pune',
+        addressLine2: 'Pune',
+        city: 'Pune'
+      },
+      sellers: [
+        {
+          sellerName: 'Amazon',
+          email: 'amazon@test.com',
+          discount: .2,
+          estDeliveryTime: '3 days'
+        }
+      ]
+    };
+
+    return of(productInfo);
   }
 }
