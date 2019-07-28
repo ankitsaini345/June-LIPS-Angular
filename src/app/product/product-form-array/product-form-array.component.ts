@@ -18,7 +18,7 @@ export class ProductFormArrayComponent implements OnInit {
   ngOnInit() {
     this.productArrayForm = this.fb.group({
       name: ['', Validators.required],
-      tnc : ['' , Validators.requiredTrue],
+      tnc: ['', Validators.requiredTrue],
       price: [{ value: '100', disabled: true },
       Validators.required],
       address: this.fb.group({
@@ -31,8 +31,32 @@ export class ProductFormArrayComponent implements OnInit {
       ])
     });
 
+    this.bindData();
+
     // this.productArrayForm.disable();
   }
+
+  bindData() {
+    this.productArrayForm.setValue({
+      name: 'One Plus 6T',
+      tnc : true,
+      price: 50000,
+      address: {
+        addressLine1: 'Pune',
+        addressLine2: 'Pune',
+        city: 'Pune'
+      },
+      sellers: [
+        {
+          sellerName: 'Amazon',
+          email: 'amazon@test.com',
+          discount: .2,
+          estDeliveryTime: '3 days'
+        }
+      ]
+    });
+  }
+
 
   buildForm() {
     return this.fb.group({
@@ -56,10 +80,8 @@ export class ProductFormArrayComponent implements OnInit {
     sellerControl.removeAt(i);
   }
 
-
   saveProduct() {
     console.log(this.productArrayForm.value);
     console.log(this.productArrayForm.getRawValue());
-
   }
 }
