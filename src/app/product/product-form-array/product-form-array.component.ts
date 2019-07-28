@@ -5,6 +5,9 @@ import {
   Validators
 } from '@angular/forms';
 import { ProductService } from '../service/product.service';
+
+import { CustomValidator } from '../customvalidator/custom-validator.service';
+
 @Component({
   selector: 'app-product-form-array',
   templateUrl: './product-form-array.component.html',
@@ -15,14 +18,27 @@ export class ProductFormArrayComponent implements OnInit {
   productArrayForm: FormGroup;
 
   constructor(private fb: FormBuilder,
-      private productService: ProductService) { }
+    private productService: ProductService) { }
 
   ngOnInit() {
     this.productArrayForm = this.fb.group({
-      name: ['', Validators.required],
+      name: new FormControl('',
+        {
+          validators: [
+            Validators.required,
+            CustomValidator.checkName
+          ],
+          updateOn: 'blur'
+        }
+      ),
       tnc: ['', Validators.requiredTrue],
-      price: [{ value: '100', disabled: true },
-      Validators.required],
+      price: [
+        { value: '100' },
+        {
+          validators: [Validators.required],
+          updateOn: 'blur'
+        }
+      ],
       address: this.fb.group({
         addressLine1: ['', Validators.required],
         addressLine2: [''],
@@ -31,7 +47,7 @@ export class ProductFormArrayComponent implements OnInit {
       sellers: this.fb.array([
         this.buildForm()
       ])
-    });
+    }, { updateOn: 'blur' });
 
     this.bindData();
 
