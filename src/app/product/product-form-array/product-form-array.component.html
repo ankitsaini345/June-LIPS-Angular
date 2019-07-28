@@ -3,9 +3,11 @@
 </h1>
 
 {{productArrayForm.value  | json}}
+{{productArrayForm.errors  | json}}
 <form [formGroup]="productArrayForm" (submit)="saveProduct()">
   <div class="form-group">
     <input class="form-control" type="text" formControlName="name" placeholder="Product Name">
+    {{productArrayForm.get('name').errors| json }}
   </div>
   <div class="form-group">
     <input class="form-control" type="number" formControlName="price" placeholder="Product Price">
@@ -13,6 +15,8 @@
   <div formGroupName="address">
     <div class="form-group">
       <input class="form-control" type="text" formControlName="addressLine1" placeholder="Address Line1">
+      {{productArrayForm.
+        get('address.addressLine1').value| json }}
     </div>
     <div class="form-group">
       <input class="form-control" type="text" formControlName="addressLine2" placeholder="Address Line2">
@@ -36,6 +40,11 @@
           <input class="form-control" type="text" formControlName="sellerName" placeholder="Seller Name">
         </div>
         <div class="form-group">
+          <input class="form-control" type="email" formControlName="email" placeholder="Seller Email">
+          {{productArrayForm.
+          get(['sellers', i , 'email']).errors | json}}
+        </div>
+        <div class="form-group">
           <input class="form-control" type="number" formControlName="discount" placeholder="Discount">
         </div>
         <div class="form-group">
@@ -52,7 +61,11 @@
   </div>
 
   <div>
-    <button type="submit" class="btn btn-primary">
+    <input class="form-control" type="checkbox" formControlName="tnc" placeholder="Terms">
+    {{productArrayForm.get('tnc').errors | json}}
+  </div>
+  <div>
+    <button [disabled]="productArrayForm.invalid" type="submit" class="btn btn-primary">
       Save Product
     </button>
   </div>

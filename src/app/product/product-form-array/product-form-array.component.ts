@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder, FormGroup,
-  FormControl, FormArray
+  FormControl, FormArray,
+  Validators
 } from '@angular/forms';
 @Component({
   selector: 'app-product-form-array',
@@ -16,10 +17,12 @@ export class ProductFormArrayComponent implements OnInit {
 
   ngOnInit() {
     this.productArrayForm = this.fb.group({
-      name: [''],
-      price: [{ value: '100', disabled: true }],
+      name: ['', Validators.required],
+      tnc : ['' , Validators.requiredTrue],
+      price: [{ value: '100', disabled: true },
+      Validators.required],
       address: this.fb.group({
-        addressLine1: [''],
+        addressLine1: ['', Validators.required],
         addressLine2: [''],
         city: [''],
       }),
@@ -34,6 +37,8 @@ export class ProductFormArrayComponent implements OnInit {
   buildForm() {
     return this.fb.group({
       sellerName: [''],
+      email: ['', [Validators.email,
+      Validators.required]],
       discount: [''],
       estDeliveryTime: ['']
     });
