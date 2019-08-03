@@ -50,14 +50,14 @@ export class CustomValidator {
 
 
   static checkPassword(form: FormGroup) {
-    const password = form.
-      get('password').value as string;
-    const confirmPassword = form.
-      get('confirmPassword').value as string;
+    const password = form.get('password');
+    const confirmPassword = form.get('confirmPassword');
 
-    if (password !== confirmPassword) {
-      return { passwordInvalid: true }
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setErrors({ invalidPassword: true });
+      return { passwordInvalid: true };
     } else {
+      confirmPassword.setErrors(null);
       return null;
     }
   }

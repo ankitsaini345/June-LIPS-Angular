@@ -86,6 +86,14 @@ export class ProductFormArrayComponent implements OnInit {
     //   ]
     // });
 
+    // this.productArrayForm.
+    //   valueChanges.subscribe((name) =>
+    // console.log(name));
+
+    this.productArrayForm.get('name').
+      valueChanges.subscribe((name) =>
+        console.log(name));
+
   }
 
 
