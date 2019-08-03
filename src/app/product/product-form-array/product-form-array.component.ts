@@ -31,6 +31,8 @@ export class ProductFormArrayComponent implements OnInit {
           updateOn: 'blur'
         }
       ),
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
       tnc: ['', Validators.requiredTrue],
       price: [
         { value: '100' },
@@ -47,7 +49,10 @@ export class ProductFormArrayComponent implements OnInit {
       sellers: this.fb.array([
         this.buildForm()
       ])
-    }, { updateOn: 'blur' });
+    }, {
+        validators: CustomValidator.checkPassword,
+        updateOn: 'blur'
+      });
 
     this.bindData();
 
@@ -57,7 +62,7 @@ export class ProductFormArrayComponent implements OnInit {
   bindData() {
 
     this.productService.getProductInfo().subscribe(
-      (data) => this.productArrayForm.setValue(data)
+      (data) => this.productArrayForm.patchValue(data)
     );
     // this.productArrayForm.setValue({
     //   name: 'One Plus 6T',
