@@ -26,7 +26,10 @@ export class ProductFormArrayComponent implements OnInit {
         {
           validators: [
             Validators.required,
-            CustomValidator.checkName
+            CustomValidator.checkName,
+            Validators.minLength(5),
+            Validators.maxLength(15),
+            CustomValidator.checkSpecialChars('$')
           ],
           updateOn: 'blur'
         }
@@ -89,8 +92,12 @@ export class ProductFormArrayComponent implements OnInit {
   buildForm() {
     return this.fb.group({
       sellerName: [''],
-      email: ['', [Validators.email,
-      Validators.required]],
+      email: ['', [
+        Validators.email,
+        Validators.required
+      ],
+        CustomValidator.checkSeller(this.productService)
+      ],
       discount: [''],
       estDeliveryTime: ['']
     });

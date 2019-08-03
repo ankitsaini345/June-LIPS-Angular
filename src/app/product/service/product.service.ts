@@ -33,7 +33,7 @@ export class ProductService {
   getProductInfo() {
     const productInfo = {
       name: 'One Plus 6T',
-      tnc : true,
+      tnc: true,
       price: 50000,
       address: {
         addressLine1: 'Pune',
@@ -51,5 +51,17 @@ export class ProductService {
     };
 
     return of(productInfo);
+  }
+
+  checkSeller() {
+    const email = [
+      'test1@gmail.com',
+      'test2@gmail.com',
+      'test3@gmail.com',
+      'test4@gmail.com',
+      'test5@gmail.com',
+    ];
+
+    return of(email);
   }
 }
