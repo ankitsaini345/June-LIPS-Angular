@@ -1,7 +1,15 @@
-<app-posts-add></app-posts-add>
+
+
+<app-posts-add
+[posts]="selectedRecord"
+(editPost)="updatePost($event)"
+(addPost)="addPost($event)">
+
+</app-posts-add>
 <!--
 {{ posts$ | async | json }} -->
 
 
-<app-posts-list [postsList]="posts$ | async">
+<app-posts-list [postsList]="posts$ | async"
+(editSelected)="getSelectedPost($event)">
 </app-posts-list>

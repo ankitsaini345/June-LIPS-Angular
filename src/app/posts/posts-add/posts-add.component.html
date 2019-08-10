@@ -1,5 +1,5 @@
 {{posts | json}}
-<br>
+<!-- <br>
 invalid: {{postForm.invalid | json}}
 <br>
 valid: {{postForm.valid | json}}
@@ -14,9 +14,12 @@ Pending:{{postForm.pending | json}}
 <br>
 Value: {{postForm.value | json}}
 <br>
-Errors: {{postForm.errors | json}}
+Errors: {{postForm.errors | json}} -->
 
-<form #postForm="ngForm" (submit)="addpost(postForm);">
+<form #postForm="ngForm" (submit)="submitPost(postForm);">
+  <div class="form-group">
+    <input disabled class="form-control" type="number" name="id" [(ngModel)]="posts.id" placeholder="ID">
+  </div>
   <div class="form-group">
     <input min=1 max=5 class="form-control" type="number" name="userid" [(ngModel)]="posts.userId"
       placeholder="User Id">
@@ -25,11 +28,11 @@ Errors: {{postForm.errors | json}}
     <input #body="ngModel" required class="form-control" type="text" name="body" [(ngModel)]="posts.body"
       placeholder="Body">
 
-    <div class="alert alert-danger"
+    <!-- <div class="alert alert-danger"
     *ngIf="body.dirty && body?.errors?.required">
       Please provide body data!
-    </div>
-    <br>
+    </div> -->
+    <!-- <br>
     invalid: {{body.invalid | json}}
     <br>
     valid: {{body.valid | json}}
@@ -40,14 +43,17 @@ Errors: {{postForm.errors | json}}
     <br>
     Value: {{body.value | json}}
     <br>
-    Errors: {{body.errors | json}}
+    Errors: {{body.errors | json}} -->
   </div>
   <div class="form-group">
     <input required class="form-control" type="text" name="title" [(ngModel)]="posts.title" placeholder="Title">
   </div>
   <div class="form-group">
-    <button [disabled]="postForm.invalid" type="submit" class="btn btn-primary">
+    <button *ngIf="!posts.id ||  posts.id === 0" [disabled]="postForm.invalid" type="submit" class="btn btn-primary">
       Add Post
+    </button>
+    <button *ngIf="posts.id > 0" [disabled]="postForm.invalid" type="submit" class="btn btn-primary">
+      Edit Post
     </button>
   </div>
 </form>

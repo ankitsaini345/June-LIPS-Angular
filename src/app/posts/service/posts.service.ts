@@ -34,4 +34,11 @@ export class PostsService {
         post);
   }
 
+  editPost(post: IPosts) {
+    return this.http.put<IPosts>
+      ('https://jsonplaceholder.typicode.com/posts/'
+        + post.id,
+        post);
+  }
+
 }
