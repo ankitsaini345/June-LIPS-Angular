@@ -14,7 +14,7 @@ export class PostsComponent {
   isValid = true;
   sub: Subscription;
 
-  posts$ = this.postsService.getPosts();
+  posts$ = this.postsService.getPosts$;
 
   constructor(private postsService: PostsService) { }
 
