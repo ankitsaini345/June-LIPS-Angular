@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PostsService } from './service/posts.service';
 import { Subscription, Observable } from 'rxjs';
-import { takeWhile, shareReplay } from 'rxjs/operators';
-import { IPosts } from './iposts';
+
 
 @Component({
   selector: 'app-posts',
