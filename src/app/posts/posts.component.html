@@ -1,3 +1,7 @@
 <app-posts-add></app-posts-add>
+<!--
+{{ posts$ | async | json }} -->
 
-{{ posts$ | async | json }}
+
+<app-posts-list [postsList]="posts$ | async">
+</app-posts-list>
