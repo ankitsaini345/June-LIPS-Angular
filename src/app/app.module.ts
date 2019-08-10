@@ -20,6 +20,7 @@ import { ProductAddComponent } from './product/product-add/product-add.component
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ProductGroupComponent } from './product/product-group/product-group.component';
 import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
+import { PhotosComponent } from './photos/photos.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ProductFormArrayComponent } from './product/product-form-array/product-
     ProductAddComponent,
     ProductFormComponent,
     ProductGroupComponent,
-    ProductFormArrayComponent
+    ProductFormArrayComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,

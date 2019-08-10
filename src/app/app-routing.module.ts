@@ -7,6 +7,7 @@ import { ProductAddComponent } from './product/product-add/product-add.component
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ProductGroupComponent } from './product/product-group/product-group.component';
 import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
+import { PhotosComponent } from './photos/photos.component';
 
 const routes: Routes = [
   { path: 'product', component: ProductComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'product/add/group', component: ProductGroupComponent },
   { path: 'product/add/array', component: ProductFormArrayComponent },
   { path: 'posts', component: PostsComponent },
-  { path: 'employee', component: EmployeeComponent }
+  { path: 'employee', component: EmployeeComponent },
+  { path: 'photos', component: PhotosComponent }
 ];
 
 @NgModule({
