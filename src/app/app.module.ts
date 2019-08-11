@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +21,7 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ProductGroupComponent } from './product/product-group/product-group.component';
 import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
 import { PhotosComponent } from './photos/photos.component';
+import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,13 @@ import { PhotosComponent } from './photos/photos.component';
     MatIconModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpinterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
