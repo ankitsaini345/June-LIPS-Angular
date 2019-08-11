@@ -4,12 +4,16 @@ import {
 } from '@angular/core';
 import { IEmployee } from './iemployee';
 import { EmployeeService } from './service/employee.service';
+import { NewEmployeeService } from './service/new-employee.service';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  providers: [EmployeeService]
+  providers: [{
+    provide: EmployeeService,
+    useClass: NewEmployeeService
+  }]
 })
 export class EmployeeComponent implements OnInit {
 

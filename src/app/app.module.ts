@@ -22,6 +22,8 @@ import { ProductGroupComponent } from './product/product-group/product-group.com
 import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
 import { PhotosComponent } from './photos/photos.component';
 import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
+import { NewEmployeeService } from './employee/service/new-employee.service';
+import { EmployeeService } from './employee/service/employee.service';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,10 @@ import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
       useClass: HttpinterceptorService,
       multi: true
     }
+    // {
+    //   provide: EmployeeService,
+    //   useClass: NewEmployeeService
+    // }
   ],
   bootstrap: [AppComponent]
 })
