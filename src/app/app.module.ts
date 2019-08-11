@@ -24,6 +24,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
 import { NewEmployeeService } from './employee/service/new-employee.service';
 import { EmployeeService } from './employee/service/employee.service';
+import { CONFIG_SERVICE, CONFIG_VALUE } from './valueProvider/valueprovider.service';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,10 @@ import { EmployeeService } from './employee/service/employee.service';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpinterceptorService,
       multi: true
+    },
+    {
+      provide : CONFIG_SERVICE,
+      useValue: CONFIG_VALUE
     }
     // {
     //   provide: EmployeeService,

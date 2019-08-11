@@ -1,7 +1,9 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit, Inject } from '@angular/core';
 import { EmployeeService } from './employee/service/employee.service';
 import { IEmployee } from './employee/iemployee';
 import { ProductService } from './product/service/product.service';
+import { IConfig } from './valueProvider/ivalueprovider';
+import { CONFIG_SERVICE } from './valueProvider/valueprovider.service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,10 @@ export class AppComponent implements OnInit, DoCheck {
   productCount = 0;
   empList: IEmployee[] = [];
   constructor(private empService: EmployeeService,
-    private productService: ProductService) { }
+    private productService: ProductService,
+    @Inject(CONFIG_SERVICE) private config: IConfig) {
+      console.log(config.apiEndPoint, config.pageSize);
+     }
 
 
   ngOnInit() {
