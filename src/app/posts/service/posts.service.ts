@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IPosts } from '../iposts';
-import { tap, shareReplay } from 'rxjs/operators';
+import { tap, shareReplay, map } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
+
+  searchPostSubject$ = new BehaviorSubject<string>('');
+  searchAction$ = this.searchPostSubject$.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +31,21 @@ export class PostsService {
       tap(data => console.log(data)),
       shareReplay(1)
     );
+
+  searchPost$ = combineLatest([
+    this.getPosts$,
+    this.searchAction$
+  ]).pipe(
+    tap((data) => console.log(data)),
+    map(
+      ([posts, searchText]) =>
+        posts.filter(post => post.title.includes(searchText))
+    )
+  );
+
+  searchPost(searchText: string) {
+    this.searchPostSubject$.next(searchText);
+  }
 
   addPost(post: IPosts) {
     return this.http.post<IPosts>

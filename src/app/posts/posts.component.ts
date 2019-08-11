@@ -13,7 +13,7 @@ export class PostsComponent {
 
   isValid = true;
   sub: Subscription;
-
+  searchText: string;
   selectedRecord = {
     body: '',
     id: 0,
@@ -21,10 +21,14 @@ export class PostsComponent {
     userId: 0
   };
 
-  posts$ = this.postsService.getPosts$;
+  posts$ = this.postsService.searchPost$;
 
   constructor(private postsService: PostsService) { }
 
+
+  searchPost() {
+    this.postsService.searchPost(this.searchText);
+  }
   getSelectedPost(post: IPosts) {
     this.selectedRecord = post;
   }

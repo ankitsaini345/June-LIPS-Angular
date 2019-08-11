@@ -1,15 +1,11 @@
-
-
-<app-posts-add
-[posts]="selectedRecord"
-(editPost)="updatePost($event)"
-(addPost)="addPost($event)">
+<app-posts-add [posts]="selectedRecord" (editPost)="updatePost($event)" (addPost)="addPost($event)">
 
 </app-posts-add>
 <!--
 {{ posts$ | async | json }} -->
 
+<input class="form-control" type="text" [(ngModel)]="searchText" name="searchText" placeholder="Search Post"
+  (change)="searchPost()">
 
-<app-posts-list [postsList]="posts$ | async"
-(editSelected)="getSelectedPost($event)">
+<app-posts-list [postsList]="posts$ | async" (editSelected)="getSelectedPost($event)">
 </app-posts-list>
