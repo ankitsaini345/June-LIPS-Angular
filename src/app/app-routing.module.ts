@@ -11,7 +11,6 @@ import { PhotosComponent } from './photos/photos.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'posts', component: PostsComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'photos', component: PhotosComponent },
   {

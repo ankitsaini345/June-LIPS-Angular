@@ -9,7 +9,11 @@ import { PostsListComponent } from './posts-list/posts-list.component';
 import { PostsAddComponent } from './posts-add/posts-add.component';
 
 @NgModule({
-  declarations: [PostsComponent, PostsListComponent, PostsAddComponent],
+  declarations: [
+    PostsComponent,
+    PostsListComponent,
+    PostsAddComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
