@@ -8,16 +8,17 @@ import { ProductFormComponent } from './product/product-form/product-form.compon
 import { ProductGroupComponent } from './product/product-group/product-group.component';
 import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
 import { PhotosComponent } from './photos/photos.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: 'product', component: ProductComponent },
-  { path: 'product/add', component: ProductAddComponent },
-  { path: 'product/add/form', component: ProductFormComponent },
-  { path: 'product/add/group', component: ProductGroupComponent },
-  { path: 'product/add/array', component: ProductFormArrayComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'employee', component: EmployeeComponent },
-  { path: 'photos', component: PhotosComponent }
+  { path: 'photos', component: PhotosComponent },
+  {
+    path: '', redirectTo: 'employee',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

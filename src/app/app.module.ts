@@ -16,35 +16,25 @@ import { PostsModule } from './posts/posts.module';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
-import { ProductAddComponent } from './product/product-add/product-add.component';
-import { ProductFormComponent } from './product/product-form/product-form.component';
-import { ProductGroupComponent } from './product/product-group/product-group.component';
-import { ProductFormArrayComponent } from './product/product-form-array/product-form-array.component';
 import { PhotosComponent } from './photos/photos.component';
 import { HttpinterceptorService } from './interceptor/httpinterceptor.service';
-import { NewEmployeeService } from './employee/service/new-employee.service';
-import { EmployeeService } from './employee/service/employee.service';
 import { CONFIG_SERVICE, CONFIG_VALUE } from './valueProvider/valueprovider.service';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductModule } from './product/product.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent,
-    ProductListComponent,
     EmployeeComponent,
     EmployeeListComponent,
     HeaderComponent,
     ContainerComponent,
     MainNavComponent,
-    ProductAddComponent,
-    ProductFormComponent,
-    ProductGroupComponent,
-    ProductFormArrayComponent,
-    PhotosComponent
+    PhotosComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -54,7 +44,9 @@ import { CONFIG_SERVICE, CONFIG_VALUE } from './valueProvider/valueprovider.serv
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ProductModule,
+    AppRoutingModule
   ],
   providers: [
     {
